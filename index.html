@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Configuration</title>
+</head>
+<body>
+    <h1>Bot Configuration</h1>
+    <form id="configForm">
+        <label for="apiId">API ID:</label>
+        <input type="text" id="apiId" name="apiId" required><br><br>
+        <label for="apiHash">API Hash:</label>
+        <input type="text" id="apiHash" name="apiHash" required><br><br>
+        <label for="botToken">Bot Token:</label>
+        <input type="text" id="botToken" name="botToken" required><br><br>
+        <button type="button" onclick="saveConfig()">Save Configuration</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved configuration if available
+            const savedConfig = JSON.parse(localStorage.getItem('botConfig'));
+            if (savedConfig) {
+                document.getElementById('apiId').value = savedConfig.api_id || '';
+                document.getElementById('apiHash').value = savedConfig.api_hash || '';
+                document.getElementById('botToken').value = savedConfig.bot_token || '';
+            }
+        });
+
+        function saveConfig() {
+            const config = {
+                api_id: document.getElementById('apiId').value,
+                api_hash: document.getElementById('apiHash').value,
+                bot_token: document.getElementById('botToken').value
+            };
+            localStorage.setItem('botConfig', JSON.stringify(config));
+            alert('Configuration saved!');
+        }
+    </script>
+</body>
+</html>
