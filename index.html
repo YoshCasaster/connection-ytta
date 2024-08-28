@@ -4,88 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Verification</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            max-width: 300px;
-            width: 100%;
-        }
-        button {
-            background-color: #00b894;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #009a74;
-        }
-        .hidden {
-            display: none;
-        }
-        #message {
-            color: red;
-        }
-    </style>
 </head>
 <body>
-    <div id="loginPage" class="container">
-        <h1>Login</h1>
-        <input type="password" id="passwordInput" placeholder="Enter Password" />
-        <button onclick="validatePassword()">Submit</button>
-        <p id="message"></p>
-    </div>
-    <div id="mainContent" class="container hidden">
-        <h1>Welcome</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#history">History</a>
-            <a href="#creator">Creator</a>
-        </nav>
-        <div id="home" class="section">
-            <h2>Home</h2>
-            <p>Welcome to the home page.</p>
-        </div>
-        <div id="history" class="section">
-            <h2>History</h2>
-            <p>History content goes here.</p>
-        </div>
-        <div id="creator" class="section">
-            <h2>Creator</h2>
-            <p>Creator content goes here.</p>
-        </div>
-    </div>
-
+    <p id="password">Valid Password</p>
     <script>
-        function validatePassword() {
-            const password = document.getElementById('passwordInput').value;
-            const messageElement = document.getElementById('message');
-            
-            // Password yang benar
-            const correctPassword = 'yosepwdd';
-            
-            if (password === correctPassword) {
-                // Jika password benar, tampilkan konten utama dan sembunyikan halaman login
-                document.getElementById('loginPage').classList.add('hidden');
-                document.getElementById('mainContent').classList.remove('hidden');
-            } else {
-                // Jika password salah, tampilkan pesan kesalahan
-                messageElement.textContent = 'Incorrect password. Please try again.';
-            }
-        }
+        // Sandikan password dengan base64
+        const encodedPassword = bWVfU2VjdXJlX1Bhc3N3b3Jk; // YOSEPWDD
+        document.getElementById("password").textContent = atob(encodedPassword);
     </script>
 </body>
 </html>
