@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Storage</title>
+    <title>Password</title>
 </head>
 <body>
-    <!-- Menyimpan password dalam format base64 -->
-    <p id="password">eW9zZXB3ZGQ=</p> <!-- base64 encoded "yosepwdd" -->
+    <script>
+        // Password yang valid
+        const validPassword = "yosepwdd";
+
+        // Kirim password sebagai JSON
+        const response = {
+            password: validPassword
+        };
+
+        document.write(JSON.stringify(response));
+    </script>
 </body>
 </html>
